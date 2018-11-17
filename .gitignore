@@ -243,3 +243,6 @@ TSWLatexianTemp*
 
 # ignore the base directory, this is for testing purposes only.
 /base
+
+# ignore some more files created by latexindent.
+__latexindent*
