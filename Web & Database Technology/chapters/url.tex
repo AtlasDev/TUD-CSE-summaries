@@ -1,0 +1,93 @@
+\section{URLs}
+
+URLs are a important part of the internet.
+The acronym stands for {\bf Uniform Resource Locator}.
+As you can see it gives an indication where a certain resource can be found.
+
+\subsection{format}
+An URL is formatted as the following:
+
+\begin{figure}[h]
+  \caption{Format of an URL.}
+  \begin{verbatim}
+    <scheme>://<auth>@<host>:<port>/<path>;<params>?<query>\#<frag>
+  \end{verbatim}
+\end{figure}
+
+Let's talk about this, part for part.
+
+\subsubsection{Scheme}
+The {\bf scheme} indicates the protocol to use for the URL\@.
+It will tell the operating system which program can process it.
+The most common schemes used are {\it http://}, {\it https://} and {\it mailto://}.
+This format explained is for HTTP and HTTPS\@.
+An other scheme can use a different format.
+
+\subsubsection{Auth}
+This format is deprecated, but still used and accepted wildly.
+It can provide a username and password for authentication.
+Most of the times it is {\it base64} encoded.
+The basic format is as following:
+
+\begin{verbatim}
+  username:password
+\end{verbatim}
+
+\subsubsection{Host}
+This is the domain name most of the time.
+It refers to the location of the server this is connected to.
+If it's a domain name it'll get resolved by the {\bf DNS} first.
+
+\subsubsection{Port}
+Here you can override the TCP/IP port used to create a connection.
+Normally this is 80 for HTTP, and 443 for HTTPS\@.
+
+\subsubsection{Path}
+This is the path where the resource is located.
+THis indicates the location of the resource inside of the server.
+An example is:
+
+\begin{verbatim}
+  /this/is/my/path.html
+\end{verbatim}
+
+\subsubsection{Params}
+Here you can give more parameters to the url.
+This is uncommon practice to use.
+I recommend to use the {\it query} part instead.
+
+\subsubsection{Query}
+This is used to pass parameters via the URL\@.
+These are simple key value parameters.
+
+\begin{verbatim}
+  ?foo=bar&hello=hi
+\end{verbatim}
+
+\subsubsection{Frag}
+A frag is a location inside of a document.
+It is most often used for referring to a specific chapter in a HTML document (an anchor).
+
+\subsection{Punycode}
+URLs were intended to only be used with ASCII characters.
+This was fine in the beginning, as the internet was entirely in english.
+In the modern day this is no longer the case, it's being used all over the world.
+With other languages come other characters, characters which are not in ASCII\@.
+To fix this issue punycode was invented.
+It's a type of encoding to encode other characters with only ASCII\@.
+For example:
+
+\begin{verbatim}
+  xn–pple-43d.com
+\end{verbatim}
+
+gives:
+\begin{verbatim}
+  apple.com
+\end{verbatim}
+
+\subsubsection{Phishing}
+Punycode does make the browser vulnerable to a specific type of homograph attacks.
+As you can see in last example the punycode renders as apple.com.
+It is not actually apple.com, which can cause confusion.
+You can even get SSL certificates for these domains, making is way more convincing.
