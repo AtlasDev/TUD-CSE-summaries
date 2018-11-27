@@ -1,0 +1,78 @@
+\section{Differentiation}
+
+Differentiation is a really important concept of calculus.
+With this you can calculate the slope of a function in a specific point.
+
+\subsection{The product rule}
+The product rule is a simple rule to differentiate two functions which are in a product.
+The rule is as following:
+
+\[(f * g)'(x)=f'(x) * g(x) + f(x) * g'(x)\]
+
+\subsection{The quotient rule}
+The quotient rule is a rule to differentiate a function which contains the quotient of two differentiable functions.
+It works as following:
+
+\[
+  (\frac{f}{g})'(x) =
+  \frac{g(x) * f'(x) - g'(x) * f(x)}{{g'(x)}^2}
+\]
+
+\subsection{The chain rule}
+Some functions cannot be differentiated that easily.
+You will need the chain rule for that.
+Take the next function:
+
+\[f(x) = \sqrt{x^2+1}\]
+To apply the chain rule you need to substitute a part of the function with \(u(x)\).
+You should choose a part which, when removed, makes the function way easier.
+The previous function would look like this:
+
+\[f(x) = \sqrt{u(x)}\]
+\[u(x) = x^2+1\]
+Now you can differentiate the functions separately.
+This would look as following:
+
+\[
+  f'(x) =
+  \frac{1}{2\sqrt{u(x)}} * u'(x) =
+  \frac{1}{2\sqrt{x^2+1}} * 2x
+\]
+You can apply this to more than the square root, like power functions.
+A more general rule for the chain rule is as following:
+
+\[(f \circ g)'(x)=f'(g(x)) * g'(x)\]
+
+\subsection{Implicit differentiation}
+Till now we have assumed that we differentiate over a {\bf explicit function}.
+This means it has the form of \(f(x) = y\).
+But this is not always the case.
+Take the following example:
+
+\[x^3 + y^3 = 6xy\]
+This is {\it not\/} an easy function to differentiate.
+With implicit differentiation you differentiate both sides with respect to \(x\).
+We can differentiate \(y^3\) with the chain rule.
+So \(y^3\) will become \(3y^2 * \frac{dy}{dx}\).
+Trying to do that with the example function gives you:
+
+\[(x^3 + y^3)' = (6xy)'\]
+\[3x^2 + 3y^2 \frac{dy}{dx} = 6y + 6x \frac{dy}{dx}\]
+\[y^2 \frac{dy}{dx} - 2x \frac{dy}{dx} = 2y - x^2\]
+\[\frac{dy}{dx}(y^2 - 2x) = 2y - x^2\]
+\[\frac{dy}{dx} = \frac{2y - x^2}{y^2 - 2x}\]
+
+\subsection{Linear approximation}
+If you zoom into a function with the respective tangent line it\'ll start to look like that function.
+With this you can approximate the value of a function with a tangent line close to that value.
+The following is called the {\bf linearization} of \(f\) in \(a\):
+
+\[l(x) = f(a) + f'(a)(x-a)\]
+For example, if we want to calculate \(f(x) = \sqrt{x}\) with \(x = 4.36\).
+We take an \(a\) we know close to that point, \(4\) would make sense.
+This gives the following function:
+
+\[l(x) = 2 + \frac{1}{4}(x - 4) = 1 + \frac{x}{4}\]
+Now we can fill in our \(x\) into \(l(x)\).
+
+\[l(4.36) = 1 + \frac{4.36}{4} = 1 + \frac{109}{100} = 2.09 \approx \sqrt{4.36}\]
